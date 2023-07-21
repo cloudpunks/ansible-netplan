@@ -1,6 +1,6 @@
 ---
 repository:
-  name: netplan
+  name: ansible-netplan
   description: Ansible role to install and configure netplan networking
   topics: ansible, role, ansible-role, hacktoberfest
 
