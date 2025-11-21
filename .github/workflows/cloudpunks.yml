@@ -1,0 +1,48 @@
+---
+name: cloudpunks
+
+"on":
+  workflow_dispatch:
+  schedule:
+    - cron: "0 8 * * *"
+
+permissions:
+  contents: write
+
+jobs:
+  cloudpunks:
+    runs-on: ubuntu-latest
+    if: github.repository_owner == 'cloudpunks'
+
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 100
+          token: ${{ secrets.BOT_ACCESS_TOKEN }}
+
+      - name: Git config
+        run: |
+          git config --global user.email "ops@cloudpunks.de"
+          git config --global user.name "GitHub Actions"
+
+      - name: Upstream remote
+        run: git remote add upstream https://github.com/rolehippie/netplan.git
+
+      - name: Fetch all
+        run: git fetch --all --tags
+
+      - name: Checkout master
+        run: git checkout master
+
+      - name: Rebase master
+        run: |
+          git rebase upstream/master
+
+      - name: Push tags
+        run: git push --tags origin
+
+      - name: Push branch
+        run: git push --force origin
+
+...
