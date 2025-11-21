@@ -1,6 +1,6 @@
 ---
 repository:
-  name: netplan
+  name: ansible-netplan
   description: Ansible role to install and configure netplan networking
   topics: ansible, role, ansible-role, hacktoberfest
 
@@ -33,7 +33,6 @@ rulesets:
     rules:
       - type: required_linear_history
       - type: deletion
-      - type: non_fast_forward
 
   - name: check verification
     target: branch
@@ -56,10 +55,10 @@ rulesets:
       - actor_id: 1
         actor_type: OrganizationAdmin
         bypass_mode: always
-      - actor_id: 951687 # app
+      - actor_id: 2041513 # app
         actor_type: Integration
         bypass_mode: always
-      - actor_id: 6359463 # bots
+      - actor_id: 8266541 # bots
         actor_type: Team
         bypass_mode: always
 
@@ -86,10 +85,10 @@ rulesets:
       - actor_id: 1
         actor_type: OrganizationAdmin
         bypass_mode: always
-      - actor_id: 951687 # app
+      - actor_id: 2041513 # app
         actor_type: Integration
         bypass_mode: always
-      - actor_id: 6359463 # bots
+      - actor_id: 8266541 # bots
         actor_type: Team
         bypass_mode: always
 
